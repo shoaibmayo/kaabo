@@ -16,8 +16,8 @@ use App\Http\Controllers\Auth\AuthController;
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::get('/login',[AuthController::class,'login']);
-Route::post('/login',[AuthController::class,'authenticate'])->name('login');
+Route::get('/login',[AuthController::class,'login'])->name('login');
+Route::post('/login',[AuthController::class,'authenticate']);
 Route::get('/register',[AuthController::class,'register']);
 Route::post('/register',[AuthController::class,'store']);
 
@@ -26,11 +26,4 @@ Route::middleware(['auth'])->group(function (){
         return view('web.home');
     });
 });
-
-
-// Route::get('/login',function(){
-//     return view('auth.login');
-// });
-// Route::view('/login', 'auth.login');
-Route::view('/register','auth.register');
 Route::view('/about','web.about');
