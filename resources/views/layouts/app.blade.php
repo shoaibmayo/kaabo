@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-@include('includes.head')
+@include('includes.head',['title' => $title])
 </head>
 <body class="index-body">
 @include('includes.header')

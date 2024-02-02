@@ -1,7 +1,7 @@
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title')</title>
+    <title>{{ $title }}</title>
     <link href="{{asset('css/main.css')}}" rel="stylesheet">
     <link rel="shortcut icon" href="{{asset('favicon/favicon.ico')}}">
     <link rel="icon" sizes="16x16 32x32 64x64" href="{{asset('favicon/favicon.ico')}}">
