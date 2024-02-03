@@ -12,11 +12,53 @@
         .error-border {
             border: 1px solid red;
         }
+        /* Loader */
+       /* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+}
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: #00afe6;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
     </style>
 </head>
 <body>
+
     <div class="main-section-sign-up">
         <img class="logo" src="{{asset('/img/png-01.png')}}">
+        
         <h1>Sign-In</h1>
         <div id="customErrorMessage" class="error-message" style="display: none;"></div>
         <input type="email" id="email" placeholder="example@email.com">
@@ -34,6 +76,11 @@
         </div>
         
     </div>
+    <div id="loadingModal" class="modal">
+    <div class="modal-content">
+    <span class="loader"></span>
+    </div>
+</div>
    
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -74,7 +121,7 @@ var csrfToken = $('meta[name="csrf-token"]').attr('content');
         },
         success: function(response) {
             if(response[0]=='success'){
-                alert('please wait');
+                window.location.href = '{{ route("home") }}';
             }else if(response[0]=='fail'){
                 
                 $('#email').addClass('error-border');
@@ -107,5 +154,16 @@ var csrfToken = $('meta[name="csrf-token"]').attr('content');
         }
     });
 }
+</script>
+<script>
+    $(document).ajaxStart(function() {
+        // Show the loading modal when an AJAX request starts
+        $('#loadingModal').css('display', 'block');
+    });
+
+    $(document).ajaxStop(function() {
+        // Hide the loading modal when all AJAX requests are complete
+        $('#loadingModal').css('display', 'none');
+    });
 </script>
 </html>
