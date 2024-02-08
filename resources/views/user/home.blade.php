@@ -16,46 +16,46 @@
     <div class="main-section-home">
         <h1>Pick an action:</h1>
         <div class="options-home">
-            <a href="create-journey.html">
+            <a href="{{url('/user/create/journey')}}">
                 <div class="home-option">
                     <p>Create a new journey</p>
                     <img src="{{asset('/img/journey-icon.png')}}">
                 </div>
             </a>
-            <a href="create-journey.html">
+            <a href="{{url('/user/create/journey')}}">
                 <div class="home-option">
                     <p>Your journey</p>
                     <img src="{{asset('/img/your-journey-icon.png')}}">
                 </div>
             </a>
-            <a href="environment.html">
+            <a href="{{route('user_environment')}}">
                 <div class="home-option">
                     <p>Explore your environment</p>
                     <img src="{{asset('/img/explore-icon.png')}}">
                 </div>
             </a>
-            <a href="find-accommodation.html">
+            <a href="{{route('user_accomodation')}}">
                 <div class="home-option">
                     <p>Find an accommodation</p>
                     <img src="{{asset('/img/accommodation-icon.png')}}">
                 </div>
             </a>
-            <a href="find-jobs.html">
+            <a href="{{route('user_findJobs')}}">
                 <div class="home-option">
                     <p>Find Jobs</p>
                     <img src="{{asset('/img/jobs-icon.png')}}">
                 </div>
             </a>
-            <a href="network.html">
+            <a href="{{route('user_network')}}">
                 <div class="home-option">
                     <p>Your Network</p>
                     <img src="{{asset('/img/network-icon.png')}}">
                 </div>
             </a>
-            <a href="contact-us.html">
+            <a href="{{route('user_contactus')}}">
                 <div class="home-option">
                     <p>Contact Us</p>
-                    <img src="img/contact-icon.png">
+                    <img src="{{asset('img/contact-icon.png')}}">
                 </div>
             </a>
         </div>

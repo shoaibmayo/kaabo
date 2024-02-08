@@ -26,6 +26,7 @@ class User extends Authenticatable
         'goal',
         'occupation',
         'city',
+        'profile_photo',
     ];
 
     /**

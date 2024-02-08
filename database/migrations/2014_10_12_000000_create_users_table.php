@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('occupation')->nullable();
             $table->string('city')->nullable();
             $table->string('goal')->nullable();
+            $table->string('profile_photo')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

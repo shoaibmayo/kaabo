@@ -15,23 +15,23 @@
     </div>
     <div class="profile-options">
         <div class="image-profile-section">
-            <img class="profile-photo-section" src="{{asset('/img/user-icon.png')}}">
-            <img class="button-change-photo" src="{{asset('/img/camera-icon.png')}}">
+            <img class="profile-photo-section" src="{{isset(Auth()->user()->profile_photo)? asset('/assets/img/userprofile/'. Auth::user()->profile_photo) :asset('/img/user-icon.png')}}">
+            <!-- <img class="button-change-photo" src="{{asset('/img/camera-icon.png')}}"> -->
         </div>
-        <h2>Hello, Christian!</h2>
-        <a href="edit-profile.html">
+        <h2>Hello, {{Auth()->user()->first_name}}!</h2>
+        <a href="{{route('edit_profile')}}">
             <div class="profile-section-option">
                 <img src="{{asset('/img/profile-section-icon-1.png')}}">
                 <p>Edit Profile</p>
             </div>
         </a>
-        <a href="change-password.html">
+        <a href="{{route('change_password')}}">
             <div class="profile-section-option">
                 <img src="{{asset('/img/profile-section-icon-2.png')}}">
                 <p>Change Password</p>
             </div>
         </a>
-        <a href="about-us.html">
+        <a href="{{route('user_about')}}">
             <div class="profile-section-option">
                 <img src="{{asset('/img/profile-section-icon-3.png')}}">
                 <p>About Us</p>
