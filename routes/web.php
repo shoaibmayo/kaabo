@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,9 @@ use App\Http\Controllers\User\UserController;
  * Main Web
  */
 
-Route::view('/','web.home');
+ Route::get('/', function () {
+    return view('web.home');
+});
 Route::view('/about','web.about');
 
 /**
@@ -29,7 +33,7 @@ Route::get('/login',[AuthController::class,'login'])->name('login');
 Route::post('/login',[AuthController::class,'authenticate']);
 Route::get('/register',[AuthController::class,'register']);
 Route::post('/register',[AuthController::class,'store']);
-
+Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 /**
  * Authorize User
  */
@@ -51,6 +55,37 @@ Route::middleware(['auth'])->group(function (){
     Route::view('/user/contact/us','user.contactus')->name('user_contactus');
     
     // Route::get('/user/change/password',[UserController::class,'change_password'])->name('change_password');
-    Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+    
 });
 
+
+Route::get('/admin',function(){
+    return view('admin.login');
+})->name('admin_login_view');
+Route::post('admin/login',[AdminLoginController::class,'login'])->name('admin_login');
+Route::get('/admin/logout',[AdminLoginController::class,'logout'])->name('admin_logout');
+Route::middleware('admin.auth')->group(function () {
+    Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('admin_index');
+    
+});
+
+Route::get('lang/{locale}', function ($locale) {
+    if (! in_array($locale, ['en', 'de', 'es','fr','pt', 'cn', 'ae'])) {
+        abort(400);
+    }   
+    Session()->put('locale', $locale);
+    Session::get('locale');
+    return redirect()->back();
+})->name('lang');
+   
+   
+    
+
+    Route::get('/clear-cache', function() {
+        Artisan::call('config:cache');
+        Artisan::call('cache:clear');
+        Artisan::call('config:clear');
+        Artisan::call('view:clear');
+        Artisan::call('route:clear');
+        return "Cache is cleared";
+    })->name('clear.cache');
