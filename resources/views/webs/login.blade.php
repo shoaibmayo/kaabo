@@ -1,4 +1,4 @@
-@extends('web.layout.master')
+@extends('webs.layout.master')
 @section('title', 'Login')
 
 @section('content')
@@ -55,7 +55,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1"> <i class="fa fa-user text-primary"></i></span>
                           </div>
-                          <input type="text" class="form-control" name="username" value="{{ old('username') }}"  placeholder="Username / Email" aria-label="Username" aria-describedby="basic-addon1" required">
+                          <input type="email" class="form-control" name="email" value="{{ old('email') }}"  placeholder="email" aria-label="email" aria-describedby="basic-addon1" required">
                     </div>
                 </div>
                

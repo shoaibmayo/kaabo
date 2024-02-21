@@ -60,7 +60,7 @@
                     </div>
                     @if(auth()->user())
                     <a class="btn btn-primary py-2 px-4 ml-auto d-none d-lg-block"
-                    href="{{url('/userdashboard')}}">Dashboard</a>
+                    href="{{route('home')}}">Dashboard</a>
                    
                     
 

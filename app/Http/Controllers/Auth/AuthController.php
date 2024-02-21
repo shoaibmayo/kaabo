@@ -68,7 +68,8 @@ class AuthController extends Controller
      */
     public function login()
     {
-        return view('auth.login');
+        $data = ['page'=>'Login'];
+        return view('webs.login')->with('data',$data);
     }
 
     /**
@@ -87,14 +88,14 @@ class AuthController extends Controller
         if(Auth::attempt($credentials, function ($user, $password) {
             // This closure is called on failed login attempts.
             if ($user === null) {
-                return response()->json(['emailError', 'Email Not Found!']);
+                return back()->with('fail','Email or Password not found!');
             } else {
-                return response()->json(['passwordError', 'Email Not Found!']);
+                return back()->with('fail','Email or Password not found!');
             }
         }))
         {
             $request->session()->regenerate();
-            return response()->json(['success', 'Login Successful!']);
+            return view('auth.dashboard');
         }
         // if(Auth::attempt($credentials))
         // {
@@ -102,7 +103,8 @@ class AuthController extends Controller
         //     return response()->json(['success','Login Successfull!']);
             
         // }
-        return response()->json(['fail','Your provided credentials do not match in our records.']);
+        return back()->with('fail','Your provided credentials do not match in our records.');
+        
         // return back()->withErrors([
         //     'email' => 'Your provided credentials do not match in our records.',
         // ])->onlyInput('email');

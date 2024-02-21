@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <title>@yield('title') - {{ config('app.name') }}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Webra Earning International" name="keywords">
-    <meta content="Webra Earning International" name="description">
+    <meta content="KAABO" name="keywords">
+    <meta content="KAABO" name="description">
 
     <!-- Favicon -->
     <link href="{{asset('/favicon/favicon-192.png')}}" rel="icon">
