@@ -36,6 +36,7 @@ Route::post('/login',[AuthController::class,'authenticate']);
 Route::get('/register',[AuthController::class,'register']);
 Route::post('/register',[AuthController::class,'store']);
 Route::post('/logout',[AuthController::class,'logout'])->name('logout');
+Route::get('/logout/get/user',[AuthController::class,'logout'])->name('logout_get');
 /**
  * Authorize User
  */

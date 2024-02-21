@@ -37,7 +37,7 @@
                 <p>About Us</p>
             </div>
         </a>
-        <a href="{{route('logout')}}">
+        <a href="{{route('logout_get')}}">
             <div class="profile-section-option">
                 <img src="{{asset('/img/profile-section-icon-4.png')}}">
                 <p>Logout</p>

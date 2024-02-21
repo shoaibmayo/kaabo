@@ -95,7 +95,7 @@ class AuthController extends Controller
         }))
         {
             $request->session()->regenerate();
-            return view('auth.dashboard');
+            return view('user.home');
         }
         // if(Auth::attempt($credentials))
         // {
