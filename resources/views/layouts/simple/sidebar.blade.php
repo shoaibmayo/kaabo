@@ -17,27 +17,35 @@
 					
 					
 					<li class="sidebar-list">
-						<a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/admin/dashboard' ? 'active' : '' }}" href="{{url('/admin/dashboard')}}"><i data-feather="home"></i><span class="lan-3">Home</span>	
+						<a class="sidebar-link sidebar-title {{ Route::currentRouteName()=='admin_index' ? 'active' : '' }}" href="{{url('/admin/dashboard')}}"><i data-feather="home"></i><span class="lan-3">Home</span>	
 						</a>
 					</li>
 					<li class="sidebar-list">
-							<a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/users' ? 'active' : '' }}" href="#"><i data-feather="users"> </i><span class="lan-6">Users</span>
-								<div class="according-menu"><i class="fa fa-angle-{{request()->route()->getPrefix() == '/users' ? 'down' : 'right' }}"></i></div>
+						<a class="sidebar-link sidebar-title {{ Route::currentRouteName()=='admin_user_list' ? 'active' : '' }}" href="{{url('/admin/users/list')}}"><i data-feather="users"></i><span class="lan-3">Users</span>	
+						</a>
+					</li>
+					<!-- <li class="sidebar-list">
+							<a class="sidebar-link sidebar-title {{Route::currentRouteName()=='admin_user_list' ? 'active' : '' }}" href="#"><i data-feather="users"> </i><span class="lan-6">Users</span>
+								<div class="according-menu"><i class="fa fa-angle-{{Route::currentRouteName()=='admin_user_list' ? 'down' : 'right' }}"></i></div>
 							</a>
-							<ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/users' ? 'block;' : 'none;' }}">
-			                    <li><a href="" class="{{ Route::currentRouteName()=='user-list' ? 'active' : '' }}">User List</a></li>
+							<ul class="sidebar-submenu" style="display: {{ Route::currentRouteName()=='admin_user_list' ? 'block;' : 'none;' }}">
+			                    <li><a href="{{url('/admin/users/list')}}" class="{{ Route::currentRouteName()=='admin_user_list' ? 'active' : '' }}">User List</a></li>
 		                  	</ul>
-					</li>
+					</li> -->
 					<li class="sidebar-list">
-						<a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/payout' ? 'active' : '' }}" href="{{url('payout')}}"><i data-feather="home"></i><span class="lan-3">Stores</span>	
+						<a class="sidebar-link sidebar-title {{ Route::currentRouteName()=='admin_bank_list' ? 'active' : '' }}" href="{{route('admin_bank_list')}}"><i data-feather="airplay"></i><span class="lan-3">Bank Detail</span>	
 						</a>
 					</li>
 					<li class="sidebar-list">
-							<a class="sidebar-link sidebar-title" href="#"><i data-feather="airplay"></i><span class="lan-6">Banks Detail</span>
+						<a class="sidebar-link sidebar-title {{request()->route()->getPrefix() == '/payout' ? 'active' : '' }}" href="{{url('payout')}}"><i data-feather="list"></i><span class="lan-3">Stores</span>	
+						</a>
+					</li>
+					<li class="sidebar-list">
+							<a class="sidebar-link sidebar-title" href="#"><i data-feather="book"></i><span class="lan-6">Web Content</span>
 								<div class="according-menu"><i class="fa fa-angle-{{request()->route()->getPrefix() == '/tickets' ? 'down' : 'right' }}"></i></div>
 							</a>
-							<ul class="sidebar-submenu" style="display:">
-			                    <li><a href="" class="{{ Route::currentRouteName()=='tickets-list' ? 'active' : '' }}">List</a></li>
+							<ul class="sidebar-submenu" style="display: {{ request()->route()->getPrefix() == '/bank' ? 'block;' : 'none;' }}">
+			                    <li><a href="{{route('admin_bank_list')}}" class="{{ Route::currentRouteName()=='tickets-list' ? 'active' : '' }}">List</a></li>
 			                    <li><a href="" class="{{ Route::currentRouteName()=='add-tickets' ? 'active' : '' }}">Add New Bank</a></li>
 		                  	</ul>
 					</li>

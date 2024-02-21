@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Web\WebController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\AdminController;
@@ -21,10 +22,11 @@ use App\Http\Controllers\Admin\AdminLoginController;
  * Main Web
  */
 
- Route::get('/', function () {
+ Route::get('/', [WebController::class,'index']);
+ Route::get('/old',function(){
     return view('web.home');
-});
-Route::view('/about','web.about');
+ });
+Route::get('/about',[WebController::class,'about']);
 
 /**
  * Authorization
@@ -33,7 +35,7 @@ Route::get('/login',[AuthController::class,'login'])->name('login');
 Route::post('/login',[AuthController::class,'authenticate']);
 Route::get('/register',[AuthController::class,'register']);
 Route::post('/register',[AuthController::class,'store']);
-Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+Route::post('/logout',[AuthController::class,'logout'])->name('logout');
 /**
  * Authorize User
  */
@@ -66,6 +68,9 @@ Route::post('admin/login',[AdminLoginController::class,'login'])->name('admin_lo
 Route::get('/admin/logout',[AdminLoginController::class,'logout'])->name('admin_logout');
 Route::middleware('admin.auth')->group(function () {
     Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('admin_index');
+    Route::get('/admin/users/list',[AdminController::class,'userList'])->name('admin_user_list');
+    Route::get('/admin/banks/list',[AdminController::class,'bankList'])->name('admin_bank_list');
+    Route::post('/admin/store/new/bank',[AdminController::class,'storeBank']);
     
 });
 

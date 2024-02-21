@@ -27,90 +27,34 @@
 <table class="table " id="ticketList">
 			<thead>
 			<tr>
-				<th>#no</th>
-				<th>Jackpot Prize</th>
-				<th>Ticket Type</th>
-				<th>Ticket Payable</th>
-				<th>6 Lucky Numbers</th>
-				<th>Total Sold</th>
-				<th>Expiry</th>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Email</th>
+            <th>Occupation</th>
+				<th>City</th>
+				
 				<th>Edit</th>
 				<th>Delete</th>
 			</tr>
 			</thead>
 			<tbody>
-         <tr>
-    				    <td>63745467</td>
-                    <td>5485454$</td>
-                    <td>Super Lotto</td>
-                    <td>20$</td>
-                    <td>1,2,3,4,5,6</td>
-                    <td>0</td>
-                    <td>2021-08-15</td>
-                    <!-- <td><a href="https://lotto.pakeemall.com/public/drawblade/92" type='button' class='btn btn-success'>Draw</a></td> -->
-                    <td><a href="https://lotto.pakeemall.com/public/edit_ticket/92" type="button" class="btn btn-primary">Edit</a></td>
-                    <td><a onclick="return confirm('Are you sure you want to delete?')" href="https://lotto.pakeemall.com/public/delete_ticket/92" type="button" class="btn btn-danger">Delete</a></td>
+            @if(count($data['users'])>0)
+               @foreach($data['users'] as $user)
+               <tr>
+    				    <td>{{$user->id}}</td>
+                    <td>{{$user->first_name .' '. $user->last_name}}</td>
+                    <td>{{$user->email}}</td>
+                    <td>{{$user->occupation}}</td>
+                    <td>{{$user->city}}</td>
+                    <td><a href="" type="button" class="btn btn-primary">Edit</a></td>
+                    <td><a onclick="return confirm('Are you sure you want to delete?')" href="" type="button" class="btn btn-danger">Delete</a></td>
     			</tr>
-             <tr>
-    				    <td>63745467</td>
-                    <td>5485454$</td>
-                    <td>Super Lotto</td>
-                    <td>20$</td>
-                    <td>1,2,3,4,5,6</td>
-                    <td>0</td>
-                    <td>2021-08-15</td>
-                    <!-- <td><a href="https://lotto.pakeemall.com/public/drawblade/92" type='button' class='btn btn-success'>Draw</a></td> -->
-                    <td><a href="https://lotto.pakeemall.com/public/edit_ticket/92" type="button" class="btn btn-primary">Edit</a></td>
-                    <td><a onclick="return confirm('Are you sure you want to delete?')" href="https://lotto.pakeemall.com/public/delete_ticket/92" type="button" class="btn btn-danger">Delete</a></td>
-    			</tr>
-             <tr>
-    				    <td>63745467</td>
-                    <td>5485454$</td>
-                    <td>Super Lotto</td>
-                    <td>20$</td>
-                    <td>1,2,3,4,5,6</td>
-                    <td>0</td>
-                    <td>2021-08-15</td>
-                    <!-- <td><a href="https://lotto.pakeemall.com/public/drawblade/92" type='button' class='btn btn-success'>Draw</a></td> -->
-                    <td><a href="https://lotto.pakeemall.com/public/edit_ticket/92" type="button" class="btn btn-primary">Edit</a></td>
-                    <td><a onclick="return confirm('Are you sure you want to delete?')" href="https://lotto.pakeemall.com/public/delete_ticket/92" type="button" class="btn btn-danger">Delete</a></td>
-    			</tr>
-             <tr>
-    				    <td>63745467</td>
-                    <td>5485454$</td>
-                    <td>Super Lotto</td>
-                    <td>20$</td>
-                    <td>1,2,3,4,5,6</td>
-                    <td>0</td>
-                    <td>2021-08-15</td>
-                    <!-- <td><a href="https://lotto.pakeemall.com/public/drawblade/92" type='button' class='btn btn-success'>Draw</a></td> -->
-                    <td><a href="https://lotto.pakeemall.com/public/edit_ticket/92" type="button" class="btn btn-primary">Edit</a></td>
-                    <td><a onclick="return confirm('Are you sure you want to delete?')" href="https://lotto.pakeemall.com/public/delete_ticket/92" type="button" class="btn btn-danger">Delete</a></td>
-    			</tr>
-             <tr>
-    				    <td>63745467</td>
-                    <td>5485454$</td>
-                    <td>Super Lotto</td>
-                    <td>20$</td>
-                    <td>1,2,3,4,5,6</td>
-                    <td>0</td>
-                    <td>2021-08-15</td>
-                    <!-- <td><a href="https://lotto.pakeemall.com/public/drawblade/92" type='button' class='btn btn-success'>Draw</a></td> -->
-                    <td><a href="https://lotto.pakeemall.com/public/edit_ticket/92" type="button" class="btn btn-primary">Edit</a></td>
-                    <td><a onclick="return confirm('Are you sure you want to delete?')" href="https://lotto.pakeemall.com/public/delete_ticket/92" type="button" class="btn btn-danger">Delete</a></td>
-    			</tr>
-             <tr>
-    				    <td>63745467</td>
-                    <td>5485454$</td>
-                    <td>Super Lotto</td>
-                    <td>20$</td>
-                    <td>1,2,3,4,5,6</td>
-                    <td>0</td>
-                    <td>2021-08-15</td>
-                    <!-- <td><a href="https://lotto.pakeemall.com/public/drawblade/92" type='button' class='btn btn-success'>Draw</a></td> -->
-                    <td><a href="https://lotto.pakeemall.com/public/edit_ticket/92" type="button" class="btn btn-primary">Edit</a></td>
-                    <td><a onclick="return confirm('Are you sure you want to delete?')" href="https://lotto.pakeemall.com/public/delete_ticket/92" type="button" class="btn btn-danger">Delete</a></td>
-    			</tr>
+               @endforeach
+            @else
+            <tr><td>No User Found!</td></tr>
+            @endif
+        
+            
           
 			</tbody>
 		</table>
